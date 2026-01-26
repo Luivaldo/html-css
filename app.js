@@ -1,13 +1,5 @@
-'use strict'
+'use strict';
 
-
-function changeColor() {
-  const color = prompt("Enter a color for the first section");
-
-  if (color && color.trim() !== "") {
-    document.getElementById("section1").style.backgroundColor = color;
-  }
-}
 
 function showDeal() {
   const wantsDeal = confirm("Do you want to see today's deal?");
@@ -17,4 +9,22 @@ function showDeal() {
   } else {
     alert("No worries! Come back later.");
   }
+}
+
+
+
+function getUserColor() {
+  let color = "";
+  while (!color || color.trim() === "") {
+    color = prompt("Enter a color for the first section:");
+    if (!color || color.trim() === "") {
+      alert("That is not a valid color. Try again!");
+    }
+  }
+  return color;
+}
+
+function changeColorWithValidation() {
+  const color = getUserColor();
+  document.getElementById("section1").style.backgroundColor = color;
 }
